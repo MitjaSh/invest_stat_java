@@ -1,0 +1,9 @@
+# Создал хранилище сертификатов russian_truststore.jks
+
+"C:\Program Files\Java\jdk-26.0.2.1\bin\keytool" -importcert -alias russian_trusted_root -file C:\Users\Mitja\Documents\java\invest_stat\src\main\resources\russian_trusted_root_ca.cer -keystore russian_truststore.jks  -storepass my_password -noprompt
+
+"C:\Program Files\Java\jdk-26.0.2.1\bin\keytool" -importcert -alias russian_trusted_sub -file C:\Users\Mitja\Documents\java\invest_stat\src\main\resources\russian_trusted_sub_ca.cer -keystore russian_truststore.jks -storepass my_password -noprompt
+
+
+# Прописал его использование при запуске своего проета. Через VM Options в Run/Debug Configurations
+-Djavax.net.ssl.trustStore="C:\Users\Mitja\Documents\java\invest_stat\src\main\resources\russian_truststore.jks" -Djavax.net.ssl.trustStorePassword=my_password -Djavax.net.ssl.trustStoreType=PKCS12
